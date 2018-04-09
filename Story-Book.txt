@@ -138,7 +138,7 @@ Effect creators
 
 returns a plain JacaScript Object and does not perform any execution.
 
-the execution is performed by the middleware during the iteration process.
+the execution is performed by the middleware during the iteration process. 
 
 call - runs a function , if promise then pauses untill resolved.
 

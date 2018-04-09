@@ -27,7 +27,7 @@ git add -> we need to add "my_new_file.txt" to the staging area.
 $ git reset another-file.js to remove from the staging area.
 
 
-$ git commit -m "Add three files".
+$ git commit -m "Add three files". 
 
 
 $ git commit -a -m "Do something once more".
