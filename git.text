@@ -26,6 +26,7 @@ git add -> we need to add "my_new_file.txt" to the staging area.
 
 $ git reset another-file.js to remove from the staging area.
 
+git rm --cached "Fie_Name.txt"
 
 $ git commit -m "Add three files". 
 
@@ -44,4 +45,6 @@ Instead of resetting the HEAD and undoing the last commit, we can rectify a comm
 
 $ git commit --amend -m "Add the remaining file".
 
-he "--amend" option lets you amend the last commit by adding a new file (or multiple files). Using the "--amend" option, you can also overwrite the message of your last commit
+the "--amend" option lets you amend the last commit by adding a new file (or multiple files). Using the "--amend" option, you can also overwrite the message of your last commit.
+
+Git has a "remote" command to deal with remote repositories. But before we jump into an explanation of how the "remote" command works, we have to do a little bit of setup.
