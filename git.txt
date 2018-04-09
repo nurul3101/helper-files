@@ -92,7 +92,7 @@ to merge into the current branch.
 
 git checkout -b admin-panel.
 
-This is the git hepler file.
+This is the git hepler file .
 
 
 
