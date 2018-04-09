@@ -60,5 +60,25 @@ There's also that strange "-u" option. What it means is that we're lazy enough n
 view the list of repositories
 $ git remote -v
 
+when other developers push their changes to a remote repository, you'll want to see their changes on your computer. That is, you'll want to pull their code to your local repository.
+
+$ git pull
+
+When you run the "pull" command, Git will:
+
+Pull changes in the current branch made by other developers; and
+Synchronize your local repository with the remote repository.
 
 
+You'll use multiple branches for your projects. Branches are, arguably, the greatest feature of Git, and they're very helpful.
+
+In the simplest terms, you'll use branches to store various versions of your project: a stable app.
+
+
+To add a branch
+
+git branch branch_name
+to switch to that branch 
+git checkout branch_name
+
+$ git merge user-profile
