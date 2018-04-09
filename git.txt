@@ -76,9 +76,23 @@ In the simplest terms, you'll use branches to store various versions of your pro
 
 
 To add a branch
-
 git branch branch_name
+
+
 to switch to that branch 
 git checkout branch_name
 
+now change the file and commit it.
+
+If we want to push changes to the specific branch then
+git push -u origin branch_name.
+
 $ git merge user-profile
+to merge into the current branch.
+
+git checkout -b admin-panel.
+
+This is the git hepler file.
+
+
+
