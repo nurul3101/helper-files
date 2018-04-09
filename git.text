@@ -48,3 +48,17 @@ $ git commit --amend -m "Add the remaining file".
 the "--amend" option lets you amend the last commit by adding a new file (or multiple files). Using the "--amend" option, you can also overwrite the message of your last commit.
 
 Git has a "remote" command to deal with remote repositories. But before we jump into an explanation of how the "remote" command works, we have to do a little bit of setup.
+
+git remote add origin https://github.com/YourUsername/some-small-app.git
+
+Once you run the command above, Git will connect your local and remote repositories
+
+$ git push -u origin master
+
+There's also that strange "-u" option. What it means is that we're lazy enough not to run a long "git push -u origin master" command each time we push code to the cloud. Thanks to "-u", we can run only "git push" next time
+
+view the list of repositories
+$ git remote -v
+
+
+
