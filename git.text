@@ -1,0 +1,47 @@
+$ git config --global user.name "King Kong"
+$ git config --global user.email "king-kong@gmail.com"
+
+
+$ git config --global color.ui true
+
+
+$ git config --list
+user.name=King Kong
+user.email=king-kong@gmail.com
+
+Initialize a local repo:
+git init 
+
+
+$ git add my-file.ts another-file.js new_file.rb
+
+$ git status
+
+You can consider branches in Git as paths.
+
+Git has a base branch called the master branch
+
+git add -> we need to add "my_new_file.txt" to the staging area.
+
+
+$ git reset another-file.js to remove from the staging area.
+
+
+$ git commit -m "Add three files".
+
+
+$ git commit -a -m "Do something once more".
+we can add modified files to the staging area and commit them at the same time. Git provides the above. super command
+
+$ git reset --soft HEAD^
+Undo the last commit.
+
+he "reset" command is the opposite of the "add" command. This time, "reset" tells Git to undo the commit. What follows "reset" is the "--soft" option. The "--soft" option means that the commit is canceled and moved before HEAD. You can now add another file to the staging area and commit, or you can amend files and commit them.
+
+HEAD" thing represents, recall that we work in branches. Currently we're in the master branch, and HEAD points to this master branch. When we switch to a different branch later, HEAD will point to that different branch. HEAD is just a pointer to a branch.
+
+Instead of resetting the HEAD and undoing the last commit, we can rectify a commit by using the "--amend" option when committing to a repository. Just add the remaining file to the staging area and then commit.
+
+$ git commit --amend -m "Add the remaining file".
+
+he "--amend" option lets you amend the last commit by adding a new file (or multiple files). Using the "--amend" option, you can also overwrite the message of your last commit

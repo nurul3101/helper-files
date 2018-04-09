@@ -1,0 +1,165 @@
+A component often relies on number of props. Example-Pagination
+Based on the props we want to modify the designs.
+
+So making a component in middle of a Complex Project can be difficult.
+
+React Storybook is an isolated environment to quickly develop and design our components -> uses hot reloading.
+Can help for resuse , testability.
+
+In the root directory of our React App.
+we use getstorybook command.
+npm run storybook.
+
+Storybook interface divided into 3 components.
+Left side on of StoryKind.
+which shows all the stories.
+
+Action and add-on panels
+Componenet view
+
+const stories = storiesOf('Pagination',module);
+
+and then stories.add('name',()=>{
+
+})
+
+we can use action function of storybook.
+which gives us its methods like onClick and so we can express our action.
+
+we can expose our props.
+
+we can use addDecorator for adding add-ons
+
+we can use add-ons like knobs for that.
+In  your attributes of our component we expose our prop.
+
+we can also add automated documentation for our story book.
+
+stories.addOf() function to add description.
+
+we can link stories together.
+for that we use linkTo() method to connect to other stories.
+
+As we are not creating componenet in context of our Complex application we can reuse it.
+
+Storyshots.
+Testing markup through snapshot testing.
+Specs add-on.
+The test-results can be diaplayed in the story book.
+
+we can test 10-12 variants of component in isolation.
+
+
+stylus -w src/stylus
+will create stylus.css.
+
+craete variable using
+blue = #790090;
+or also using $blue;
+
+sGrid is a Flexbox grid system built with Stylus CSS preprocessor.
+
+s-grid-settings.styl
+s-grid-functions.styl
+s-grid-classes.styl
+
+we can use it without helper classes (like s-grid-cell-sm-4 etc.) and with helper classes which is good if you want a quick prototype of something.
+
+also we can use grid() and cell() functions to create custom styles.
+
+Need to import s-grid-classes.styl to use helper classes.
+
+sGrid uses Flexbox with the native css calc() function.
+
+
+In redux thunk we get access to dispatch().
+Thunk is a function which returns a function.
+And that function can be called later with dispatch().
+
+The dispatch() function can be accessed directly from the store as store.dispatch(), but more likely you'll access it using a helper like react-redux's connect(). You can use bindActionCreators() to automatically bind many action creators to a dispatch() function.
+
+Reducers specify how the application's state changes in response to actions sent to the store.
+
+he reducer is a pure function that takes the previous state and an action, and returns the next state.
+
+All combineReducers() does is generate a function that calls your reducers with the slices of state selected according to their keys, and combining their results into a single object again.
+
+Holds application state;
+
+Allows access to state via getState();
+
+Allows state to be updated via dispatch(action);
+
+Registers listeners via subscribe(listener);
+
+Handles unregistering of listeners via the function returned by subscribe(listener).    
+
+we action do chaining (store) => (next) => (action).
+
+next(action) will pass to next middleware.
+
+
+put takeEvery all call from redux-saga/effects.
+
+delay from redux-saga
+
+
+What happens is that the middleware examines the type of each yielded Effect then decides how to fulfill that Effect. If the Effect type is a PUT then it will dispatch an action to the Store. If the Effect is a CALL then it'll call the given function  
+
+
+takeEvery allows multiple fetchData instances to be started concurrently. At a given moment, we can start a new fetchData task while there are still one or more previous fetchData tasks which have not yet terminated.
+
+takeLatest allows only one fetchData task to run at any moment. And it will be the latest started task. If a previous task is still running when another fetchData task is started, the previous task will be automatically cancelled.
+
+
+Asynchronus functions which call next when the async function is done.
+
+REDUX SAGA
+
+redux saga is a library that aims to make handling side effects in React/Redux applications easir and better.
+
+saga is a separte thread just for side effects.
+
+we import createSagaMiddleware from 'redux-saga'
+
+sagaMiddleware.run(rootSaga);
+
+Main saga file is generally divided into two different classes of sagas
+workers and watchers.
+
+    
+watcher saga see's every action that is dispatched to the redux store, if it matches then it runs the saga.
+
+takeEvery - takes every matching action and runs the instructed saga , can run concurrent tasks.
+
+takeLatest -  cancels any previous saga task if it is still running.
+
+Effect creators
+
+returns a plain JacaScript Object and does not perform any execution.
+
+the execution is performed by the middleware during the iteration process.
+
+call - runs a function , if promise then pauses untill resolved.
+
+put - dispatches an action.
+
+Redux Saga runs the generator functions for us.
+
+take is like a reducer it can listen to action.
+As action creator passes through the reducers.
+It can listen to an action.
+
+put dipatches an action.
+
+function* serverSaga(){
+    yield take('start');
+    yield delay(1000);
+    yield put({type:'done'});
+}
+
+As soon as start action is encountered then only the next lines of codee will be executed.
+
+you can manipulate generators while tey are suspended.
+
+In network race conditions like while login request is being processed and user somehow clicks logout.

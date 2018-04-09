@@ -1,0 +1,851 @@
+ECMAScript is the Standard.
+Javascript is the implementation.
+ECMAScript2015 = ES6.
+ES6 -> Babel -> ES5 Code.
+
+Babel transpiles ES6 into ES5.
+
+Array Helper Methods
+
+forEach.
+map
+filter
+find
+every
+some
+reduce
+
+Array Helper methods are used to avoid for loops.
+For Loop can go wrong in many ways.
+So we generally avoid using for loops.
+
+elements in array are one by one sent to the iterator function.
+Iteration function is the function which we pass in the Array Helper methods
+and then returns taking the next element.
+
+Generally if the array is the plural then in the function you pass name as singular.
+E.g 
+computers.forEach((computer) =>{
+
+})
+
+Function which we passed isnt necessary to be anonymous.
+You can declare the function separetly and then use it.
+
+In that case we just pass the reference to the function.
+i.e we do not add paranthesis.
+If we add paranthesis that would mean that we immediately invoke the function and pass the 
+result to forEach.
+which we do not want to do.
+
+
+So, forEach doesn’t actually return anything. It just calls the function for each array element and then it’s done. So whatever you return within that called function is simply discarded.
+
+On the other hand, map will similarly call the function for each array element but instead of discarding its return value, it will capture it and build a new array of those return values.
+
+This also means that you could use map wherever you are using forEach but you still shouldn’t do that so you don’t collect the return values without any purpose. It’s just more efficient to not collect them if you don’t need them
+
+
+The difference lies in what they return. After execution:
+
+arr.map()
+returns an array of elements resulting from the processed function; while:
+
+arr.forEach()
+returns undefined.
+
+
+In large applications we do not mutate the state/array.
+Instead you create a new element and do operations on that.
+
+In map helper make sure that return is used.
+
+Pluck means taking some property from array of objects.
+For that we can use map array helper.
+
+Facebook , instagram all are just rendering of list of data.
+
+Filter is used to evaluate a boolean condition and only elements which return true will be added.
+Filter just evaluates weather condition is true or not.
+
+We can make any complex condition which evaluates to true and false and we will be able to use filter
+function.
+
+No need of using if condition for generating true or false values.
+
+Find Helper is used to find particular element from array.
+
+Find helper returns true or false.
+As it finds true it will immediately break;
+and not search further.
+If there are two values having same condition then also only one first will be returned.
+Do not forget to use return keyword.
+
+Every Helper returns boolean.
+all the elements sent to the function returns a boolean and we kind of do && operation.
+
+If all of them satisfy condition then true else false.
+
+If every element returns true then every will return true.
+
+
+Some helper kind of does OR operator if any element evaluates to true then it will return true.
+
+we can use every function to validate all the fields.
+
+prototype keyword is used to assign a method to a function
+
+function Field(value){
+    this.value = value;
+}
+
+Field.prototype.validate = function(){
+    return this.value.length > 0;
+}
+
+Reduce Helper.
+Reduce Helper takes a initial value;
+
+The Iterator function in reduce takes two arguments first argument is initial value and the second argument is the element in the array.
+
+After first iterator what we return will be passed in the first argument for the second iteration. 
+
+we can balance parenthesis by taking a counter.
+
+In js 0 is false and non zero is true.
+
+By adding ! to a js string we evaluate it to boolean.
+
+const is constant and we want that assigned value never changes.
+
+let keyword is used when you expect that the value will be changing.
+
+includes method is used in array to check if an element exists in that array.
+
+Template literals use `` and we can inject any javascript expression in it inside ${}.
+
+In a template string if there is just a variable we do not need ${} we can rather just reference the variable.
+
+To convert regular function in to Arrow function we remove function keyword and after the arguments we add a fat arrow =>.
+
+ when we have just the return statement or a single expression we can remove the curly braces and remove the return keyword.
+It means implicit return is invoked.
+
+If we have single argument in fat  arrow function then we can chop off the paranthesis.
+If more than one argument then compulsory we have to add paranthesis.
+
+If we have none than we have to add empty paranthesis ().
+
+const add = () => {
+
+}
+
+const add = num => num + num;
+
+
+The iterator function is somewhere in the codebase.
+so the value of this gets lost.
+
+so to avoid that we can use the bind function.
+
+.bind(this);
+
+or we can do 
+
+var self = this;
+
+and this.memberName will not be undefined.
+
+Arrow function solves this problem.
+
+Fat arrow function uses lexical this.
+depending on when we are using this it will automatically take the context.
+
+const team = {
+    names : ['Nurul','Krushil'],
+    teamName : 'Suicide Squad',
+    teamDescription : function(){
+        return this.names.map(name =>{
+            return `${name} is in ${this.teamName}`;
+        });
+    }
+};
+
+const desc = team.teamDescription();
+console.log(desc);
+
+In an object we can use functions as a value and by using this keyword we can bind it properly as in above example.
+
+Enhanced Object Literals.
+If key and value with exact same name.
+we can condense it
+e.g
+inventory : inventory will be reduced to 
+inventory.
+
+If key value pair has function as an value.
+then we can remove the function keyword and : sign.
+
+So in ES6 we remove the 
+inventoryPrice: function(){
+
+}
+to 
+inventoryPrice();
+
+It is convention that key value pairs with shortenend format it kept first
+and longer format key value pairs are kept later.
+
+Default function arguments 
+
+function makeRequest( url , method){
+    if(!method){
+        method = 'GET';
+    }
+}
+
+We do not need to do existence check in case of default url.
+
+function makeRequest( url , method = 'GET'){
+    if(!method){
+        method = 'GET';
+    }
+}
+
+makeRequest('www.google.com','POST') here method will be post so it will not be defaulted.
+
+makeRequest('',null);
+when we do not want any method.
+
+default function arguments can take an object also
+function(user = new User(generateId()));
+
+like this way.
+
+Rest and Spread.
+
+... is the rest operator.
+
+... means there are going to be certain amount of arguments and i want it in an array.
+I want to capture all those arguments or lists and capture it into an array.
+Then we use rest operator.
+
+concat operator is used to join arrays.
+
+Spread Operator is used to 
+
+we created a new array and referenced to an existing array and in front of it added ... which means spread operator.
+It means take elements from existing array and pulls the element and flattens them into the new array.
+
+const num1 = [ 1 , 2];
+const num2 = [3 ,4];
+
+[...num1 , ...num2 ];
+will result into [1,2,3,4];
+
+With Spread operator we can add new elements while joining the arrays.
+
+
+Destructuring
+
+To take properies from the object.
+
+const Destruct = {
+    type:'Demo',
+    amount:88
+}
+
+const { type } = Destruct;
+
+It means that take type property from Destruct object and assign it to the variable of same name i.e type
+
+const { type , amount } = Destruct;
+
+The name of the variable on the left hand side should be same as the property.
+And we can pull multiple properties at the same time using , .
+
+we can use destructuring to take properties from the argument object passed.
+
+
+destruturing from Object , Also from Argument Objects.
+
+When destructuring is used with arrays it pulls individual elements.
+In object it pulls properties.
+
+
+To destruct an element we use [] and to destructure a property we use {}.
+
+const arr = [ 1 ,2 , 3];
+
+const [ firstElement ] = arr;
+It will pull first element i.e 1.
+Here order matters. 
+
+const [ first , second ] = arr;
+here second will be 2.
+
+const [firstInventory , ...rest ] = inventory;
+Take rest of the elements can be accessed using spread operator ...rest and we can use them.
+
+Destructuring arrays and objects at the same time.
+
+companies = [
+    { location:'Menlo Park' , name:'Facebook' },
+    { location:'San Francisco' , name:'Uber' },
+]
+
+const [{location}] = companies;
+
+const { locate : [ firstLocation ] } = Google;
+The above line means that from Google object pull locate property 
+and from that property which is an array pull the first element.
+
+will give the location.
+
+
+In function instead of passing arguments we can pass object.
+And from object we can pull out properties.
+
+To convert from array to object we can use destructuring and array heplers to obtain our result.
+
+
+JS have prototypal inheritance.
+
+we need to add prototype keyword to add method to an object.
+
+We do not have to woory about prototype by using classes.
+
+Class is used to avoid prototypal inheritance and constructors and other boiler plate code.
+
+class Toyota extends Car{
+    constructor(){
+        super(); // call Car.constructor();
+    }
+}
+
+class uses enhanced object literals syntax to define functions.
+
+classes are used extensively in new libraries.
+
+for of loop is used to iterate over arrays of data.
+for in is used to iterate over objects.
+
+Generators 
+/////Important
+Generator is a function that can be entered and exited multiple times.
+
+By adding a star (*) after function keyword it becomes a generator.
+
+It also has a keyword yield;
+
+when we called a generator it returned an object with a method of next
+
+and next().
+
+yield has some relation with next();
+
+When we call next()..All the code until the first yield statement is encountered will be executed.
+
+when we encounter yield we return from the gen.next() method.
+The value returned will be the value after yield 'this value'.
+
+when we again execute gen.next() it will continue its execution from that yield statement.
+Now we can pass some value in gen.next('some value') like this.
+and that value will be passed.
+
+done will be true when return statement is encountered or there are no further yield statements.
+
+We execute codein the generator with .next();
+
+Generators work perfectly with for of loops.
+
+Generators are used to iterate over any data structure we want.
+
+we can pass argument to generator.
+
+Delegation - Combining multiple generators.
+When we want to iterate over multiple generators it is known as generator delegation.
+
+yield* var_name will yield over var_name generator.
+
+var_name = Iterator(team.TestingTeam);
+
+Iterator objects are completely separate from our iterator.
+
+Symbol Iterator is a tool that teaches object how to respond to for of loop.
+
+yield* randObj.testingTeam;
+In the object randObj we point to another object testing team.
+In testing team it will check for a key of SYmbol.Iterator if it has that key than the function/generator to which it is pointing will be used.
+
+[] in key is for interpolation it does not create an array.
+
+yield* says the next variable is an object 
+go there and find a way to iterate over that object.
+In the object it will look for Symbol.iterator key.  
+
+Generators do not work with array helper methods.
+
+
+Promises are now available natively.
+
+In js there is no concept of pausing execution of code.
+
+3 states of promises.
+1) unresolved : waiting for something to finish
+2) resolved : something finished all went ok
+3) rejected : something finished and something went bad.
+
+we can register callback functions with then or catch.
+
+Promise takes a function which has two params resolve and reject.
+when we call resolve();
+callback registered with then will be ran.
+And if we call reject then catch() will be executed.
+
+
+fetch helper is a new feature implemented in es6.
+
+fetch(url)
+
+url = 'our url';
+
+fetch returns promise which we can resolve by registering the callback function with then.
+
+we get our data in then and to get our data we need to call .json() method to get meaningful data.
+
+fetch does not go in catch() when our server returns error code.
+It will only go in catch when there is network error.
+E.g domain name not found.
+use axios dude.
+
+let allows block scoping in javascript.
+
+if(true){
+    let name='asda';
+}
+
+console.log(name) will give an error.
+
+In let you cannot redefine the variable.
+
+If you define an array or objects a constant and then add new value with push that would be acceptable as array is a refrenced variable.  
+
+Hoisting in let does not work the same way as var.
+means you need to define the variable first and then access it.
+
+
+while using import export..you actually just are passing a refernce.
+
+
+export { keyvalue , test}
+
+
+import { keyvalue , test } from 'file_name'
+
+
+when we are using export default then while importing we do not add { }.
+
+There will be only one default export in a file.
+
+we can also asign alias to our imports.
+
+import { key as Keyy } from 'file_name'.
+
+To import all things
+
+import * as imported from 'ex.js';
+It returns an object which has as properies all the elements which were exported.
+
+
+we can merge multiple objects.
+
+Object.assign(obj1,obj2);
+
+
+JS Engine is a program that executes JS Code.like v8 of chrome
+
+In engine our code is parsed by parser.
+It checks whether syntax is correct or not.
+If all the syntax is correct then a data structure is created which is known as 
+Abstract Syntax tree which is then translated to machine code.
+Then it runs the code.
+
+All js code needs to run in an environment and these environments are called execution contexts.
+
+Execution context is like a box or a wrapper which stores variables and in which a piece of our code is evaluated and executed.
+
+Default execcution context is the  global execution context
+
+In global execution context all the code which is not inside any function is executed.
+
+we can also imagine execution context as an object.
+global execution context is associated with global object
+In browser it is window object. In node it is the process object
+
+E.g var a = 'somethhiing' will be window.a
+like a is property of window object.
+
+whenever we call a function it gets it new execution context.
+when we call a function its new execution context is put on the execution stack.
+
+when the function execution completets it is removed from the top of execution stack.
+and the execution context below it becomes the active execution context.
+
+
+Execution context object has
+1) Variable Object
+2) Scope chain 
+3) 'This' Variable
+
+Execution context object is created in two phases 
+1) Creation phase
+    Creation of Variable object
+    Creation of scope chain 
+    Determine value of this
+
+2) Execution phase
+    code of the function that generated execution context is ran line by line
+
+
+In creation of variable object
+    Argument object is created containing all arguments that were passed to the function
+    Code is scanned for function declarations for each function a property is created in variable object pointing to the function
+
+Code is scanned for  variable declarations - for each variable a property is created in variable object and set to undefined.
+
+Above two points is known as Hoisting
+Function and variables are hoisted in js.
+Functions are already defined.
+while variables will be declared as undefined.
+
+We can call pure functions even before it is declared. only for functions
+
+rand()
+
+function rand(){
+
+}
+
+will work correctly
+
+but
+
+ran()
+
+var ran = function(){
+
+}
+
+will not work because above is not a function declaration but a function expression.
+Hoisting only works for function declarations.
+
+Variable Hoisting
+
+console.log(a) -> undefined
+var a = 23;
+console.log(a) -> 23.
+
+because variables are set to undefined in creation phase.
+
+if a = 23 is commented
+then we would get an error that a is not defined.
+
+Creation of scoping chain 
+
+Each new function creates a scope: the space/environment in which variables it defines are accessible.
+
+To create a new scope we need to define a new function.
+
+In Js we have lexical scoping: a function that is lexically within another function gets access to the scope of outer/parent function.-> It is about positionof code.
+
+If JS engine does not find a variable in its current scope then it looks in its parent's scope
+
+locally scoped variable are not visible to its parent function.
+
+Order in which the functions are called does not determine the scope of the variables.
+
+scope of variables are defined by where functions are written.
+
+
+***this****
+this variable is provided to each execution context.
+
+In a regular function call: this keyword points to the global object.
+
+Method call : the this variable points to the object that is calling the method.
+
+the this keyword is not assigned a value until a function where it is defined is actually called.
+
+var john = {
+    name:'John',
+    calculatAge:function(){
+        console.log(this);
+
+        function innerage(){
+            console.log(this);
+        }
+
+        innerage();
+
+    }
+}
+
+john.calculateAge();
+
+Here this will be the object that called the method that is john object.
+
+innerage() this will refer to the global object beacause it is a simple function call and not a method
+
+method borrowing.
+mike.calculateAge = john.calculateAge
+
+here we just passed the reference.
+
+
+DOM : Document Object Model
+Structured Respresentation of an HTML document
+DOM is used to connect webpages to scripts like javascript.
+DOM is fully object oriented representation 
+For each of the boxes there is an object in DOM.
+
+document object gives us access to the DOM.
+HTML web page content is stored in DOM which can then be accessed and manipulated by JS
+
+
+var are function scoped.
+let is block scoped.
+
+
+document.querySelector() is used to select html element the sme way we select css.
+so wee can pass '#id' or .class name to access it.
+To change the text inside the selected element we use textContent method.
+
+If we wnt to put html then we need to use innerHTML method.
+when we use innerHTML method we pass html tags in ''
+='<em>dice</em>'
+
+we can use querySelector methods also to read html content and store it in variable.
+
+var x = document.querySelector('#id').textContent;
+
+we can use querySelector to change the css of an element.
+document.querySelector('.dice').style.display = 'none';
+Remember the value should be in quotes.
+
+Events: Notifications that are sent to notify the code that something happened on the webpage.
+Triggered by clicking a button,resizing window etc.
+
+Event Listener : A function that performs an action based on a certain event.
+
+Events are processed only when execution stack is empty.
+There is a message queue in our js engine where this events are processed.
+
+To add an EventListener we use a function named addEventListener()
+whose first argument is event name and second parameter is the callback function.
+
+var diceDOM = document.querySelector('.dice');
+This way we can refer to the DOM Element and then manipulate it.
+Instead of selecting it every time.
+
+To change the attributes of the DOM 
+diceDOM.src = 'dice-' + dice + '.png';
+we can change it like this.
+
+document.getElementById is used to refer to the element pointed by the Id.
+It is faster than querySelector
+
+To add or remove or toggle a class we can do so by 
+document.querySelector('.player-0-panel').classList.remove('active'); or
+document.querySelector('.player-0-panel').classList.toggle('active');
+
+Ideally to add or remove classes we should not use style propertt  like
+document.querySelector('.dice').style.display = 'none';
+
+Instead we should create a class and then add or remove them / Toggle them.
+
+state variable tells us condition of the system.
+
+document.querySelector('.input').value
+
+Almost Everything is object in js
+
+Primitive :
+Numbers
+Strings
+Booleans
+undefined
+null
+
+Everything else are objects.
+arrays
+Functions
+objects 
+dates
+wrappers for string , booleans , numbers.
+
+Object oriented programming makes heavy use of properties , methods and objects.
+and these objects interact with each other
+
+We can make a blue print and depending on that blueprint we can make many objects.
+
+We call that blueprint as a prototype or an constructor.
+The object which then made from that constructor are known as its instances.
+
+Inheritance is when one object gets access to other objects properties and methods.
+
+Javascript is a prototype based language which means inheritance works by using something known as prototypes.
+
+Each and every js object has a prototype property which makes inheritance possible
+
+Prototype property of an object is where we keep our methods and properites which we want all the object to inherit.
+Person prototype is not the prototype of itself but of all the instances which are created with the person blueprint.
+
+Person's prototype property is the prototype of john.
+
+Person is an instance of a bigger constructor  which is the Object object.
+The Object object has methods like hasOwnProperty() , isPrototypeOf() etc which are inherited by the person object
+
+john -> person -> Object-> null is known as the prototype chain which makes inheritance possible.
+
+
+whenever we call a method on a object first it will check its own methods if it will not find thenit will check in the prototype property of its parents object and go on untill null is encountered which will have prototype property of undefined.
+
+Creating Objects with function constructor.
+
+when we use new keyword an empty object is created.
+also new keyword makes sure that it points this to the execution context of the new empty object and not the global context.
+
+in function constructor after new keyword we call the method but due to the new keyword instead of traditionally pointing to the global context it will point to the functions execution context.
+
+we are not returning anything from the function constructor so it would just return simple object that we created.
+
+whatever we want to  inherit should be declared in the constructor's prototype property.
+Do not use arrow functions while defining function in prototype.
+
+You can't use an arrow function when a dynamic context is required: defining methods, create objects with constructors, get the target from this when handling events 
+
+
+It happens because the arrow function binds the context lexically with the window object.
+However the arrow function binds the context statically on declaration and is not possible to make it dynamic.
+
+This depends how the function is called, not how/where it is created.
+
+//Understanding
+When we use arrow functions in a callback it binds the context with the global context so instead of binding it with the invoked object we have to explicitly bind it.
+
+Useful Link : https://medium.freecodecamp.org/react-binding-patterns-5-approaches-for-handling-this-92c651b5af56
+
+when we call a function() this refers to the global context.
+but when we call a method of a object it refers to the context of the object from which it is invoked.
+
+From where function was defined or declared does not matter.
+what matters is that from where it was invoked.
+
+when using bind function you need not necessarily pass this you can pass any other thing.
+Your assumtion is correct, we need to use bind because we are using it outside of the context of code.
+
+In bind function we pass an object and reference it with this keyword.
+bind returns a new function.
+
+
+we can use console.info() to be able to expand the object.
+E.g for getting all the methods available in an array. we can use
+var x = [1,2];
+console.info(x);
+
+array that we create has access to methods like push,pop in its prototype.
+Array function constructor has these methods in its prototype proprty.
+
+when object literal is declared it is an instance of Object object
+when array is declared it is an instance of Array object.
+
+
+Object.create(prototype,params) is also a way in which we can create an object.
+E.g
+
+var personProto = {
+    calculateAge : function(){
+        return 2018 - this.yearOfBirth;
+    }
+}
+
+var nurul = Object.create(personProto,{
+    yearOfBirth : { value : 1996 }
+});
+
+second argument has the properies of the object.
+
+variable actually stores the copy of the data.
+but object just refer/point to the data and not actually stores it.
+
+when obj1 = obj2 
+we do not create a copy but actually just refer to it.
+when we pass primitive to a function a simple copy is created.
+but when we pass object we actually pass rference to a object. 
+
+
+
+Functions are also Objects in Javascript.
+
+function is an instance of Object type
+A function behaves like any other object
+we can store functions in a variable
+we can pass function as an argument to another function
+we can return a function from a function
+
+First class functions.
+
+Function can return functions.
+
+and you can invoke that returned functions normally.
+
+interviewQuestion('teacher')('Mark');
+The above statement will be evaluated from left to right.
+ interviewQuestion('teacher') returns a function
+ and that function gets called with function('Mark').
+
+IIFE : Immediately invoked function expression.
+IIFE can be used to create a new scope hidden from the global scope to store the variables.
+
+IIFE can be invoked only once.
+IIFE is not for reuse but for data privacy.
+
+(function(goodLuck){
+    var score = Math.random() * 10;
+    console.log(score >= 5 - goodLuck);
+})(1);
+
+Closures summary
+An inner function has always access to the variables and parameters of its outer function even after the outer function has returned.
+
+The scope chain remains intact although the function's execution context has been removed.
+
+
+Instead of using if else ladder and then returning functiond from them
+we can return a function which takes the parameter and depending on the parameter we wrote the buisness logic.
+
+
+The first argument of call method object is always setting the this variable and then other arguments for the method.
+Also method borrowing.
+
+Apply method also has first argument to set this variable.
+but second argument is an array of other arguments required for the function.
+
+
+Bind allows us to set this variable explicitly.
+bind does not immediately call the function but it generates the copy of the function so that wee can store it somewhere.
+
+bind allows us to make preset argument functions.
+It is called carrying -> preset parameters.
+
+
+
+
+
+
+
+
+
+
+

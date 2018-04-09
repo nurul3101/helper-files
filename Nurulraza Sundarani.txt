@@ -1,0 +1,29 @@
+USER DOMAIN LOGIN
+1. 
+USERNAME : Nurulraza.Sundarani
+PASSWORD : Naught@1.
+2.
+Web URL for Mail and Teams login ID:
+https://outlook.office365.com/owa/
+ & 
+E-Mail ID : Nurulraza.S@simformsolutions.com
+Pass : Naught@1.
+3.
+Zoho Projects
+URL : https://www.zoho.com/projects/login.html
+Username : Nurulraza.S@simformsolutions.com
+Password : Naught@1.
+(Login after Project manager provide invitation and after email verify)
+4.
+ETS (Time Tracker URL)
+URL    : http://stage.simformsolutions.com:60000/EmpTracking/public/auth
+ID     : simform\Nurulraza.Sundarani
+PASS   : Naught@1.
+5.
+HRM URl(For Leave Purpose)
+URL : http://hrm.simformsolutions.com
+Username : Nurulraza.S@simformsolutions.com 
+Pwd : Naught@1.
+
+
+

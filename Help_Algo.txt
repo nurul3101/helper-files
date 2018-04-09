@@ -1,0 +1,150 @@
+reverse method is only for Array.
+split('') will take a string and convert it into array.
+split(" ") coverts "How are you" into ["how" , "are", "you"]
+
+Try not to use classic for loop because there are chances of typo.
+
+Instaed we should use the new for of loop.
+But it cannot be used when you dont want to iterate over all characters.
+
+reduce takes a callback function and runs for every instance in an array and the second 
+parameter is the starting value
+
+
+use debugger keyword to debug
+
+debugger:
+
+node inspect index.js
+
+continue or c
+
+repl
+
+to exit ctrl+c
+
+To compare strings we use a == b.
+
+
+every() in array 
+returns true if all instances are true.
+returns false if nay one of them is false.
+
+try to think of other solutions
+
+multiply number by -1 to make it negative.
+
+To Test jest test.js --watch.
+
+To build a charMap we can use
+
+charMap[char] = charMap[char] + 1 || 1 ;
+
+const obj = {
+
+}
+Object.keys(obj).length will give the length of keys.
+
+Instead of setting flag you can change the condition.
+As in anagrams example.
+
+You cannot directly compare length of objects.
+You need to compare it using Object keyword.
+
+sort() method is used in array.
+To sort them.
+
+anagrams can be solved using sort method.
+
+Try to imagine a matrix when using steps.
+and try to find logic.
+
+In recursion you should first decide the base case.
+And we should change the arguments before calling the function.
+
+Figure out the bare minimum info that was needed to call the function again.
+
+Give reasonable defaults to safely handle the recursion.
+Make sure the arguments have changed.
+
+Try to make pattern when trying to play with arrays and matrices.
+
+Run time complexity describes the performance of an algorithm
+
+It tries to ask us the question
+How much more processing power/time is required to run your algorithm if we double the inputs.
+
+Linear runtime.
+one to one relation 
+E.g string reversal
+
+Quadratic runtime N^2 
+E.g Steps solution
+if n=2 we had to do 4 things.
+if n=3 we had to do 9 things and so on.
+
+Constant time complexity = 1
+Always takes the same time.
+
+Logarithmic time = log(n)
+If you double the inputs doesnt double the work
+searching algorithms are log(n)
+
+Linear time = n
+As input increases output time increases linearly
+
+Quasilinear n*log(n) Sort of when we add 1 input time added is 1 + someamount
+sorting algorithm are n*log(n)
+
+quadratic time n^2 - Time doubles
+
+2^n - exponential time
+adding one element increases time exponentially.
+
+Big 'O' notation
+what is the runtime/efficiency of your algorithm.
+Linear O(n) -> Linear runtime.
+O(1) -> Constant.
+
+
+when we use recursive solution in fibonacci the time dramatically increases when we increase the input.
+
+so it has exponential runtime.
+
+if we use iterative runtime than it will take less time.
+so it has linear run time.
+
+we never want to use exponential runtime in our solution.
+
+Memoization: Store the arguments of each function call along with the result.If the function is called again with the same arguments, return the precomputed result rather than running the function again.
+
+Slow Fib Function -> Memoizer -> Fast Memoized Fib Function.
+
+key of the cache object will be arguments with which we have called fibonacci.
+
+Data Structure : ways of organizing information with optimal runtime complexity for adding or removing records.
+
+Queue uses FIFO principle.
+
+Queue should not be treated as an array.
+
+unshift to add record in front of an array.
+
+
+New Entry Enqueue -> [1 ,2, 3, 4]  -> Dequeue
+(unshift())                            (pop())
+
+[1,2,3,4] -> pop() && push()
+
+
+Stack uses FILO.
+
+Difference between stack and queue is where we enter the record.
+In queue we add the record at first index using unshift method.
+
+and in stack we add the record using push method.
+
+Implementing queues with stack.
+Before poping reverse the stack by pushing the popped elements from stack a to stack b.
+
+

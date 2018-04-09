@@ -1,0 +1,53 @@
+JSX gets transpiled into ES5 by webpack and babel
+
+
+When you create a component/function it is actually a class and you need to instantiate it and pass to ReactDOM
+
+In render method we need to pass an object of an class.
+When we write
+<div> it converts to React.createElement(Name)
+
+Include React whenever we are using JSX.
+
+There are function based components and also Class based functions.
+
+Every class must have render method
+
+
+whenever we are writing JSX and using Javascript variables  which distort input changes we wrap it with curly braces.
+
+
+State is an simple javascript object which records the changes and we initialize it in constructor.
+State can only be initialized in Class based functions.
+
+Only in our constructor we use 
+this.state = Object;
+
+Everywhere else we use this.setState() method to change the state.
+
+To modify the value of state use this.setState().
+
+To read the value we can use this.state.name in {} because it is a javascript variable.
+
+In controlled components the state changes the value and not the other way around.
+
+When we update the state the component re renders. Important
+
+
+Downward data flow concept in react says that the parent class should obtain the data and then it should pass data to children classes.
+
+When we pass data from parent component to child component it is in the form of props.
+In functional component props is passed as a parameter and in class based component it is available anywhere by referencing this.props
+
+
+To iterate in React we use Maps and not for loops
+which takes a video indivisually and then
+
+
+When we pass Data in form of this.state.videos 
+it is taken at receivers end in props
+
+And to access it we need to use props.videos
+
+E.g Props is used to pass data from one component to another component
+
